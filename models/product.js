@@ -1,6 +1,6 @@
 // models/Product.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../database');
+const sequelize = require('../database/index');
 
 const Product = sequelize.define('Product', {
   name: { type: DataTypes.STRING, allowNull: false },
