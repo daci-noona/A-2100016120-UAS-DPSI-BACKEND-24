@@ -5,14 +5,13 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var jwt = require('jsonwebtoken');
 
-const { User, Product } = require('./models/user');
+const { User, Product } = require('./routes/auth');
 
 //import router
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
 var authRouter = require('./routes/auth');
-var protect = require('./middleware/auth');
 
 const sequelize = require('./database/index'); //import sequelize models 
 
