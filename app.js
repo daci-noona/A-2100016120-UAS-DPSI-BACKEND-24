@@ -3,16 +3,16 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var jwt = require('jsonwebtoken');
 
+const { User, Product } = require('./models');
+
+//import router
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
-var authRouter = require('./routes/auth');
-var sequelize = require('./config/database');
-var product = require('./models/product');
-var user = require('./models/user');
-var protect = require('./middleware/auth');
-var jwt = require('jsonwebtoken');
+
+const sequelize = require('./config/database'); //import sequelize models 
 
 var app = express();
 
@@ -55,6 +55,7 @@ sequelize.sync()
  console.error('Error synchronizing database:', err);
  });
 
+ // Middleware untuk memverifikasi token JWT
  function authenticateToken(req, res, next) {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
