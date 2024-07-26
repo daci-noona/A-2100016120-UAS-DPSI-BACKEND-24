@@ -12,7 +12,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
 
-const sequelize = require('./config/database'); //import sequelize models 
+const sequelize = require('./models/index'); //import sequelize models 
 
 var app = express();
 
