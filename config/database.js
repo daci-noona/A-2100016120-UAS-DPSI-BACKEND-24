@@ -7,7 +7,7 @@ const sequelize = new Sequelize(
   "A45NnjiRP2",
   {
     dialect: 'mysql',
-    dialectModule: mysql2, // Needed to fix sequelize issues with WebPack
+    dialectModule: mysql2,
     host: "sql12.freesqldatabase.com",
   }
 )
