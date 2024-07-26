@@ -12,7 +12,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
 
-const sequelize = require('./models/index'); //import sequelize models 
+const sequelize = require('./database/index'); //import sequelize models 
 
 var app = express();
 
@@ -30,6 +30,11 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/products', authenticateToken, productsRouter); //endpoint product
 app.use('/api', authRouter); //endpoint register & login
+
+// Sinkronisasi database
+sequelize.sync().then(() => {
+  console.log('Database & tables created!');
+}).catch(err => console.log(err));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
