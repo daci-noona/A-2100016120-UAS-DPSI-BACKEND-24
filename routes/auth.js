@@ -7,7 +7,7 @@ const router = express.Router();
 router.post('/register', async (req, res) => {
   const { username, password, role } = req.body;
   const newUser = await User.create({ username, password, role });
-  res.json({ message: 'User registered' });
+  res.status(200).json({ message: 'User registered' });
 });
 
 router.post('/login', async (req, res) => {
