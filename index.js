@@ -73,6 +73,6 @@ sequelize.sync()
     req.user = user;
     next(); 
   });
-}
+} //last
 
 module.exports = app;
