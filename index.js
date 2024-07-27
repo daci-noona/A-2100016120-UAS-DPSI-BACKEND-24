@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var jwt = require('jsonwebtoken');
 
-const { User, Product } = require('./models');
+const { User, Product } = require('./models/user');
 
 //import router
 var indexRouter = require('./routes/index');
